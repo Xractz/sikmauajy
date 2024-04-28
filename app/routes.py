@@ -61,9 +61,9 @@ class BaseLogin(BaseModel):
       }
   }
 )
-def login(login: BaseLogin, response: Response):
+async def login(login: BaseLogin, response: Response):
   login_service = Login(login.npm, login.password)
-  message = login_service.login()
+  message = await login_service.login()
 
   if message["message"] == "Berhasil Login!":
     response.status_code = status.HTTP_200_OK
