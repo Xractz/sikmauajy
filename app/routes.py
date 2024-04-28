@@ -1,13 +1,13 @@
-from main import app
 from app.main import Login
 from pydantic import BaseModel
-from fastapi import Response, status
+from fastapi import Response, status, APIRouter
 
+router = APIRouter()
 class BaseLogin(BaseModel):
     npm: int
     password: str
 
-@app.post(
+@router.post(
   "/login",
   response_model=dict,
   tags=["Login"],
