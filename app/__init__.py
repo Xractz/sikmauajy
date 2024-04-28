@@ -9,6 +9,4 @@ app = FastAPI(
   redoc_url="/redocs"
 )
 
-from app import routes
-
 app.include_router(router)
